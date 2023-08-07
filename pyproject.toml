@@ -10,6 +10,8 @@ packages = [{include = "inference_llm"}]
 python = "^3.10"
 fastapi = "^0.101.0"
 pydantic = "^2.1.1"
+torch = "^2.0.1"
+transformers = "^4.31.0"
 
 
 [tool.poetry.group.dev.dependencies]
