@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "inference-llm"
+version = "0.1.0"
+description = "A dockerized inference of LLM"
+authors = ["AbinavRavi <abinav.ravi@tum.de>"]
+readme = "README.md"
+packages = [{include = "inference_llm"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.101.0"
+pydantic = "^2.1.1"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.7.0"
+bandit = "^1.7.5"
+ruff = "^0.0.282"
+flake8 = "^6.1.0"
+radon = "^6.0.1"
+pytest = "^7.4.0"
+pytest-cov = "^4.1.0"
+pre-commit = "^3.3.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
