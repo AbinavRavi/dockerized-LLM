@@ -11,5 +11,5 @@ app = FastAPI()
 
 
 @app.post("/chat")
-def respond(input: str, request: Request):
+def respond(input: InputModel, request: Request):
     pass
