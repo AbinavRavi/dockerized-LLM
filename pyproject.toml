@@ -38,6 +38,10 @@ pytest = "^7.4.0"
 pytest-cov = "^4.1.0"
 pre-commit = "^3.3.3"
 
+[tool.mypy]
+ignore_missing_imports = true
+exclude = ["huggingface_hub"]
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
