@@ -2,7 +2,9 @@ FROM python:3.10-slim
 
 COPY . .
 
-RUN pip install poetry && poetry install
+RUN pip install poetry 
+
+RUN poetry install
 
 RUN poetry run python app/download,py
 
