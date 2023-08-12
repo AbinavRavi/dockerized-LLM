@@ -1,22 +1,22 @@
-import torch
-from transformers import LlamaForCausalLM, LlamaTokenizer
+from llama_cpp import Llama
+import time
 
 
 class Inference:
     def __init__(self) -> None:
-        self.snapshot_path = "./models"
-        self.model = LlamaForCausalLM.from_pretrained(
-            self.snapshot_path,
-            quantized=True,
-            torch_dtype=torch.bfloat16,
-            low_cpu_mem_usage=True,
-            trust_remote_code=True,
-        )
-        self.tokenizer = LlamaTokenizer.from_pretrained(self.snapshot_path)
+        self.model_path = "./models/llama-2-7b.ggmlv3.q4_0.bin"
+        self.llm = Llama(self.model_path)
 
     def generate(self, prompt: str) -> str:
-        input_ids = self.tokenizer.encode(prompt, return_tensors="pt")
-        output = self.model.generate(input_ids, max_length=100)
-        # Convert the generated output back to text
-        generated_text = self.tokenizer.decode(output[0], skip_special_tokens=True)
+        output = self.llm(f"{prompt}", max_tokens=64, echo=True)
+        generated_text = output["choices"][0]["text"]
         return generated_text
+
+
+if __name__ == "__main__":
+    start_time = time.time()
+    inference = Inference()
+    output = inference.generate("Can you write a small email for quitting")
+    end_time = time.time() - start_time
+    print(end_time)
+    print(output["choices"][0]["text"])
