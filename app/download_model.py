@@ -17,12 +17,10 @@ def check_dir(directory: str) -> str:
         return directory
 
 
-def download_files(model_name, version):
-    model_path = hf_hub_download(
-        repo_id=model_name, filename="llama-2-7b.ggmlv3.q4_0.bin", local_dir="./models"
-    )
+def download_files(repo_name, model_name):
+    model_path = hf_hub_download(repo_id=repo_name, filename=model_name, local_dir="./models")
     config_path = hf_hub_download(
-        repo_id=model_name, filename="config.json", local_dir=check_dir("./models")
+        repo_id=repo_name, filename="config.json", local_dir=check_dir("./models")
     )
     return model_path, config_path
 
@@ -31,7 +29,7 @@ if __name__ == "__main__":
     config_file = "./config.yml"
     config = read_config(config_file)
     # Download the files from HF hub
-    model_repo_name = config["NAME"]
-    model_version = config["VERSION"]
-    model_path, cnf_path = download_files(model_repo_name, model_version)
+    model_repo_name = config["REPO"]
+    model_name = config["MODEL"]
+    model_path, cnf_path = download_files(model_repo_name, model_name)
     print(f"files downloaded at {model_path} and {cnf_path}")
