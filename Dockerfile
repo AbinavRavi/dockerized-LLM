@@ -8,15 +8,11 @@ RUN apt-get update && \
 
 RUN pip install poetry 
 
-RUN poetry install
+RUN poetry install --no-dev
 
 WORKDIR /app
 
-CMD python download_model.py && \
-    uvicorn infer:app --host 0.0.0.0 --port 8000
-
-# RUN python download_model,py
-
-# CMD ["uvicorn", "infer:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD poetry run python download_model.py && \
+    poetry run uvicorn infer:app --host 0.0.0.0 --port 8000
 
 EXPOSE 8000

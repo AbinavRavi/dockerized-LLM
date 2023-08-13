@@ -26,7 +26,7 @@ def download_files(repo_name, model_name):
 
 
 if __name__ == "__main__":
-    config_file = "./config.yml"
+    config_file = "../config.yml"
     config = read_config(config_file)
     # Download the files from HF hub
     model_repo_name = config["REPO"]

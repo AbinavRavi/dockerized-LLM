@@ -13,6 +13,7 @@ transformers = "^4.31.0"
 requests = "^2.31.0"
 llama-cpp-python = "^0.1.77"
 huggingface-hub = "^0.16.4"
+uvicorn = "^0.23.2"
 
 
 [tool.poetry.group.dev.dependencies]

@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 from fastapi import FastAPI
-from app.features.inference import Inference
+from features.inference import Inference
 
 
 class Input(BaseModel):
