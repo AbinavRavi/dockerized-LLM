@@ -4,7 +4,6 @@ version = "0.1.0"
 description = "A dockerized inference of LLM"
 authors = ["AbinavRavi <abinav.ravi@tum.de>"]
 readme = "README.md"
-packages = [{include = "inference_llm"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
@@ -13,6 +12,7 @@ pydantic = "^2.1.1"
 transformers = "^4.31.0"
 requests = "^2.31.0"
 llama-cpp-python = "^0.1.77"
+huggingface-hub = "^0.16.4"
 
 
 [tool.poetry.group.dev.dependencies]
