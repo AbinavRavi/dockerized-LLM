@@ -16,7 +16,9 @@ class Inference:
 if __name__ == "__main__":
     start_time = time.time()
     inference = Inference()
-    output = inference.generate("Can you write a small email for quitting")
+    output = inference.generate(
+        "Can you write a congratulation email to a colleague on promotion?"
+    )
+    print(output)
     end_time = time.time() - start_time
     print(end_time)
-    print(output["choices"][0]["text"])
