@@ -52,6 +52,13 @@ pip install poetry
 ```
 poetry install
 ```
+4. In order to maintain code style we use pre-commit hooks the first time please d0
+```
+pre-commit install
+```
+This will run pre-commit hooks everytime a commit is added
+
+
 
 Your dev environment is ready and set to go. 
 
