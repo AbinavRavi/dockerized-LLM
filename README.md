@@ -20,7 +20,7 @@ In config.yml there are two places for mentioning the hugging face repo name and
 Once the image is built and inference needs to be run you can run the following command
 
 ```
-docker run -p <port on system>:8000 <image_name>:<tag>
+docker run -it -p <port on system>:8000 <image_name>:<tag>
 ```
 
 ## Inference example request
@@ -35,4 +35,23 @@ The important things to notice is that the prompt must be sent as a json input i
 
 The input json will always be {"prompt": string} and output will be {"response": string}
 
+## Development
+
+In order to contribute you can follow the instructions below to setup the local environment
+
+1. Create a python virtualenv using conda or virtualenv or venv My preferred method is to use miniconda and create a detailed environment
+```
+conda create -n <env_name> python=3.10
+conda activate <env_name>
+```
+2. Install poetry for package management
+```
+pip install poetry
+```
+3. Install the requirements using poetry
+```
+poetry install
+```
+
+Your dev environment is ready and set to go. 
 
